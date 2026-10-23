@@ -55,6 +55,8 @@ python3 agentflow.py queue run <queue.json>
 
 ## Qué no funciona / quedó pendiente
 
+- **En uso real terminó bien ~1 de cada 3 veces.** En 29 corridas reales (16–18 sep 2026), 9 llegaron a `HUMAN_GATE`, 17 se detuvieron y 3 quedaron sin `final.json`. La causa más frecuente fue **el propio write lease** (7 paradas por `WRITE_LEASE_CONFLICT` u `OWNERSHIP_LOST`, por leases viejos que se bloqueaban solos). Le siguieron baseline drift, validadores fallidos o inseguros y salidas de modelo inválidas (2 cada uno). Algunas paradas fueron pruebas intencionales del bootstrap.
+- Después de esas corridas invertí ~5 días en endurecer el lease y el control plane (casi todos los 1132 tests son de esa etapa), **sin volver a usarlo en tareas reales**. El diseño fail-closed es correcto, pero en la práctica la seguridad estorbó más de lo que ayudó.
 - **Solo Linux.** En Windows nativo la mayoría de los tests fallan por `fcntl`/`SIGKILL`.
 - **Los comandos `run`/`program`/`queue` invocan modelos reales** y consumen cuota. Requieren un repo objetivo con ruta absoluta; los task packets de ejemplo apuntan a `~/repos/...` y hay que adaptarlos. `tasks/example.json`, que mencionaba la documentación original, no existe.
 - `config/models.json` refleja mis CLIs y modelos a la fecha (sep-2026). En otra máquina hay que redescubrir los IDs exactos.

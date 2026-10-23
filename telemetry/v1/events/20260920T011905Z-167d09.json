@@ -1,0 +1,50 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T011905Z-167d09",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-20T01:19:05.638608Z",
+  "task_id": "OPT-001",
+  "run_id": null,
+  "actor": "DeepSeek V4.1 Flash",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "4dc6dab932d0d45eafc38bae803bd4a77e6cd9ffa5cdd034ac57dcf80c8b6895"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "reviewer"
+  ],
+  "model": {
+    "provider": null,
+    "model_id": "deepseek-v4.1-flash",
+    "variant": null
+  },
+  "session_type": "fresh",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "PASS",
+    "summary": "Final independent review PASS: 0 BLOCKER, 0 HIGH, 0 MEDIUM, 2 LOW; 321/321 tests PASS; READY_FOR_HUMAN_GATE YES."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": "Final review after bounded correction. LOW residuals: escaped setsid descendant may retain daemon pipe-reader threads after bounded TimeoutExpired until pipe EOF; ESRCH proven-quiet branch lacks direct branch-specific test. Both classified non-load-bearing."
+}

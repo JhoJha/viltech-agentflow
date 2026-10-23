@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viltech.local/telemetry/v1/schemas/external.schema.json",
+  "title": "Telemetry V0 external_execution event (contract / documentation — enforcement lives in telemetry.py)",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "telemetry_version", "event_id", "event_type", "recorded_at",
+    "actor", "actor_kind", "attestation_source", "roles", "model",
+    "session_type", "timing", "outcome", "usage", "artifact_refs"
+  ],
+  "properties": {
+    "telemetry_version": {"const": 1},
+    "event_id": {"type": "string", "pattern": "^[0-9]{8}T[0-9]{6}Z-[0-9a-f]{6}$"},
+    "event_type": {"const": "external_execution"},
+    "recorded_at": {"type": "string", "pattern": "Z$"},
+    "task_id": {"type": ["string", "null"]},
+    "run_id": {"type": ["string", "null"]},
+    "actor": {"type": "string", "minLength": 1},
+    "actor_kind": {"type": "string", "minLength": 1},
+    "attestation_source": {"const": "human"},
+    "environment": {"type": ["object", "null"]},
+    "supersedes_event_id": {"type": ["string", "null"]},
+    "artifact_refs": {"type": "array"},
+    "roles": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "model": {
+      "type": "object",
+      "properties": {
+        "provider": {"type": ["string", "null"]},
+        "model_id": {"type": ["string", "null"]},
+        "variant": {"type": ["string", "null"]}
+      }
+    },
+    "session_type": {"enum": ["persistent", "fresh", "unknown"]},
+    "timing": {
+      "type": "object",
+      "properties": {
+        "started_at": {"type": ["string", "null"]},
+        "finished_at": {"type": ["string", "null"]},
+        "timing_source": {"enum": ["observed", "provided", "unknown"]}
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "verdict": {"type": ["string", "null"]},
+        "summary": {"type": ["string", "null"], "maxLength": 500}
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "token_source": {"enum": ["reported", "partial", "unavailable"]},
+        "tokens": {
+          "type": "object",
+          "properties": {
+            "in": {"type": ["integer", "null"], "minimum": 0},
+            "out": {"type": ["integer", "null"], "minimum": 0},
+            "reasoning": {"type": ["integer", "null"], "minimum": 0},
+            "cached": {"type": ["integer", "null"], "minimum": 0}
+          }
+        },
+        "cost": {
+          "type": "object",
+          "properties": {
+            "source": {"enum": ["provider_reported", "harness_estimated", "unavailable"]},
+            "value": {"type": ["number", "null"]},
+            "currency": {"type": ["string", "null"]}
+          }
+        }
+      }
+    },
+    "note": {"type": ["string", "null"], "maxLength": 2000}
+  }
+}

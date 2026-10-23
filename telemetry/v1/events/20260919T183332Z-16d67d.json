@@ -1,0 +1,19 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260919T183332Z-16d67d",
+  "event_type": "human_gate",
+  "recorded_at": "2026-09-19T18:33:32.877634Z",
+  "task_id": "PROGRAM-001A",
+  "run_id": null,
+  "actor": "human-operator",
+  "decision_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "bbef27fef0cd418113ead068fa366e5ce6fa231e6ae9104dc0621617b4f8d1e7"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "decision": "accepted_as_is",
+  "decided_at": null,
+  "note": "PROGRAM-001A accepted as-is after independent final MiMo V2.5 Pro review PASS: 0 BLOCKER, 0 HIGH, 0 MEDIUM; LOW-001 unused PROGRAM_MAX_CORRECTIONS consciously deferred."
+}

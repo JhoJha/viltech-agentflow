@@ -1,0 +1,50 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T031853Z-42edcf",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-20T03:18:53.620078Z",
+  "task_id": "WATCHDOG-001A",
+  "run_id": null,
+  "actor": "DeepSeek V4.1 Flash",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "a7f2f1af785f4633107d44c0e077e1544635cadbe25fec3ffb2d68f40a7b5ecc"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "reviewer"
+  ],
+  "model": {
+    "provider": null,
+    "model_id": "deepseek-v4.1-flash",
+    "variant": null
+  },
+  "session_type": "fresh",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "PASS",
+    "summary": "Final independent review PASS: 0 BLOCKER, 0 HIGH, 0 MEDIUM, 0 LOW; WATCHDOG 47/47 and full suite 368/368 PASS; READY_FOR_HUMAN_GATE YES."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": "Previous deterministic-precedence MEDIUM and descendant-assertion LOW verified CLOSED. Production hashes unchanged; deterministic mutations for reversed precedence and leader-only termination both detected. No commit, push, PR, or repository modification by reviewer."
+}

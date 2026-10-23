@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id", "role", "harness", "provider", "model", "variant",
+    "files_changed", "validators", "findings", "open_risks", "verdict"
+  ],
+  "properties": {
+    "task_id": {"type": "string"},
+    "role": {"enum": ["worker", "reviewer", "architect", "adjudicator"]},
+    "harness": {"type": "string"},
+    "provider": {"type": "string"},
+    "model": {"type": "string"},
+    "variant": {"type": ["string", "null"]},
+    "files_changed": {"type": "array", "items": {"type": "string"}},
+    "validators": {"type": "array", "items": {"type": "string"}},
+    "findings": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {"type": "string"},
+          {
+            "type": "object",
+            "properties": {
+              "severity": {"type": "string"},
+              "text": {"type": "string"},
+              "file": {"type": "string"},
+              "evidence": {"type": "string"},
+              "ref": {"type": "string"}
+            },
+            "required": ["severity"],
+            "additionalProperties": true
+          }
+        ]
+      }
+    },
+    "open_risks": {"type": "array", "items": {"type": "string"}},
+    "verdict": {"type": "string"},
+    "architect_plan": {
+      "type": "object",
+      "properties": {
+        "objective_interpretation": {"type": "string"},
+        "implementation_steps": {"type": "array", "items": {"type": "string"}},
+        "invariants": {"type": "array", "items": {"type": "string"}},
+        "allowed_scope": {"type": "array", "items": {"type": "string"}},
+        "do_not_change": {"type": "array", "items": {"type": "string"}},
+        "validation_expectations": {"type": "array", "items": {"type": "string"}},
+        "known_risks": {"type": "array", "items": {"type": "string"}},
+        "subtasks": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["subtask_id", "objective", "allowed_paths", "invariants", "expected_outputs"],
+            "properties": {
+              "subtask_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$"},
+              "objective": {"type": "string", "minLength": 1},
+              "allowed_paths": {"type": "array", "items": {"type": "string"}},
+              "invariants": {"type": "array", "items": {"type": "string"}},
+              "expected_outputs": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        }
+      },
+      "required": ["objective_interpretation", "implementation_steps", "invariants", "allowed_scope", "do_not_change", "validation_expectations", "known_risks"]
+    },
+    "adjudication": {
+      "type": "object",
+      "properties": {
+        "correction_required": {"type": "boolean"},
+        "classifications": {"type": "object"},
+        "accepted_refs": {"type": "array", "items": {"type": "string"}},
+        "correction_brief": {
+          "type": ["object", "null"],
+          "properties": {
+            "required_changes": {"type": "array", "items": {"type": "string"}}
+          },
+          "required": ["required_changes"]
+        },
+        "stop_reason": {"type": ["string", "null"]}
+      },
+      "required": ["correction_required", "classifications", "accepted_refs", "correction_brief", "stop_reason"]
+    }
+  }
+}

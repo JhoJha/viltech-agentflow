@@ -1,0 +1,19 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260919T231256Z-b440d0",
+  "event_type": "human_gate",
+  "recorded_at": "2026-09-19T23:12:56.496006Z",
+  "task_id": "OPT-002",
+  "run_id": null,
+  "actor": "human",
+  "decision_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "49c0e149e126d9071ba48c190d0e06788145549e78b1c6cd939505fc1bdd962d"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "decision": "accepted_as_is",
+  "decided_at": null,
+  "note": "OPT-002 Preservation Invariant Extraction accepted as-is after final independent review PASS. BLOCKER=0 HIGH=0 MEDIUM=0 LOW=1. Full suite 257/257 PASS. Remaining LOW concerns an unreachable/corrupt workspace state and does not justify another correction cycle."
+}

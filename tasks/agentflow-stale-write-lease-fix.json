@@ -1,0 +1,60 @@
+{
+  "task_id": "agentflow-v0-stale-write-lease-fix",
+  "repo": "~/repos/viltech-agentflow",
+  "risk": "HIGH",
+  "preferred_worker": "primary_worker",
+  "preferred_reviewer": "independent_reviewer",
+  "allowed_paths": [
+    "agentflow.py",
+    "tests/test_agentflow.py",
+    "tasks/agentflow-stale-write-lease-fix.json"
+  ],
+  "objective": "Implement the minimal focal AgentFlow V0 WriteLease fix: use Linux /proc process identity (pid, start time and boot id) rather than PID existence alone; fail closed for malformed, legacy, or unverifiable leases; archive provably stale leases without overwriting prior archives; preserve atomic one-writer acquisition and token-safe release. Add deterministic tests. Do not modify client-app or execute H1/E2E infrastructure.",
+  "invariants": [
+    "An active lease requires valid JSON plus matching PID, boot_id, and process_start_time.",
+    "Dead PID, start-time mismatch, or boot-id mismatch is provably stale and may be atomically archived then retried.",
+    "Malformed, legacy identity-free, or unreadable process identity leases fail closed.",
+    "Stale archive creation never overwrites an existing archive.",
+    "Two contenders cannot both acquire a recovered lease.",
+    "Release remains token-safe and cannot unlink another owner's lease.",
+    "No external dependencies; use stdlib and Linux /proc only.",
+    "All tests are synthetic/temp-dir/mock based; no Docker, DB, network, or product writes."
+  ],
+  "forbidden_actions": [
+    "git commit",
+    "git push",
+    "PR",
+    "merge",
+    "deploy",
+    "Docker mutation",
+    "database mutation",
+    "network calls",
+    "modify ~/repos/client-app",
+    "H1 E2E"
+  ],
+  "validators": [
+    {
+      "name": "compile",
+      "command": ["python3", "-m", "py_compile", "agentflow.py"],
+      "timeout_seconds": 120
+    },
+    {
+      "name": "agentflow-unit-tests",
+      "command": ["python3", "-m", "unittest", "tests.test_agentflow"],
+      "timeout_seconds": 300
+    },
+    {
+      "name": "tooling-diff-check",
+      "command": ["git", "diff", "--check"],
+      "timeout_seconds": 120
+    },
+    {
+      "name": "product-diff-check",
+      "command": ["git", "-C", "~/repos/client-app", "diff", "--check"],
+      "timeout_seconds": 120
+    }
+  ],
+  "expected_baseline": {"branch": "main"},
+  "max_corrections": 1,
+  "model_timeout_seconds": 3600
+}

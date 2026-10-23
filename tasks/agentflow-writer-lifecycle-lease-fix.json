@@ -1,0 +1,29 @@
+{
+  "task_id": "agentflow-v0-writer-lifecycle-lease-fix",
+  "repo": "~/repos/viltech-agentflow",
+  "risk": "HIGH",
+  "preferred_worker": "primary_worker",
+  "preferred_reviewer": "independent_reviewer",
+  "allowed_paths": ["agentflow.py", "tests/test_agentflow.py", "tasks/agentflow-writer-lifecycle-lease-fix.json"],
+  "objective": "Apply the minimal AgentFlow V0 WriteLease V3 lifecycle correction. Preserve V2 process identity protections, but bind recovery to the actual workspace-writing OpenCode lifecycle: durably register worker PID/start-time/boot-id and isolated session/process-group before it can exec OpenCode; require controller, worker and writer group proven inactive before stale recovery; block release while owned writer lifecycle is active. Use only stdlib/Linux /proc. Add deterministic pipe-barrier and temp-dir fake-process tests. Do not modify client-app, run H1, Docker, database, or network operations.",
+  "invariants": [
+    "Worker identity is atomically persisted under the lease guard before the wrapper receives GO and execs OpenCode.",
+    "Controller death before GO makes the wrapper exit without executing the worker command.",
+    "Controller dead plus original writer or writer group active remains an active lease; no archive or second writer.",
+    "Only controller, worker, and worker process-group all provably inactive makes a V3 lease stale.",
+    "Unknown writer or group liveness fails closed.",
+    "Normal release verifies owned writer lifecycle completion before token-safe unlink.",
+    "Preserve V2 boot/start-time/reuse, legacy fail-closed, archive uniqueness, and contender serialization protections.",
+    "Tests use only stdlib fake children and temporary directories."
+  ],
+  "forbidden_actions": ["git commit", "git push", "PR", "merge", "deploy", "Docker mutation", "database mutation", "network calls", "modify ~/repos/client-app", "H1 E2E", "real OpenCode lifecycle test"],
+  "validators": [
+    {"name": "compile", "command": ["python3", "-m", "py_compile", "agentflow.py"], "timeout_seconds": 120},
+    {"name": "agentflow-unit-tests", "command": ["python3", "-m", "unittest", "tests.test_agentflow"], "timeout_seconds": 300},
+    {"name": "tooling-diff-check", "command": ["git", "diff", "--check"], "timeout_seconds": 120},
+    {"name": "product-diff-check", "command": ["git", "-C", "~/repos/client-app", "diff", "--check"], "timeout_seconds": 120}
+  ],
+  "expected_baseline": {"branch": "main"},
+  "max_corrections": 1,
+  "model_timeout_seconds": 3600
+}

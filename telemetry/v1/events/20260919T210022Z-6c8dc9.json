@@ -1,0 +1,19 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260919T210022Z-6c8dc9",
+  "event_type": "human_gate",
+  "recorded_at": "2026-09-19T21:00:22.390104Z",
+  "task_id": "WORKTREE-001A",
+  "run_id": null,
+  "actor": "human-operator",
+  "decision_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "37f3bdc0016f3630416b11bf9f6306713a229e429da99f86e36421322a6dc139"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "decision": "accepted_as_is",
+  "decided_at": null,
+  "note": "WORKTREE-001A accepted as-is after independent final MiMo V2.5 Pro review PASS: 0 BLOCKER, 0 HIGH, 0 MEDIUM; LOW-001 dead PROGRAM_MAX_CORRECTIONS consciously deferred. Final validation: 51/51 worktree tests, 44/44 PROGRAM-001A, 58/58 legacy AgentFlow, 94/94 telemetry, 247/247 full suite."
+}

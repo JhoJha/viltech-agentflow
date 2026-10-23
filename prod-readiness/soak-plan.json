@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "test": {"active_seconds": 5, "minimum_cycles": 3, "sample_seconds": 0, "max_cycles": 3, "real_provider_calls": 0},
+    "release": {"active_seconds": 28800, "minimum_cycles": 100, "sample_seconds": 60, "real_provider_calls": 0, "warmup_cycles": 10}
+  },
+  "cycle_scenarios": ["A-mode-success", "B-mode-success", "deterministic-local-failure", "rotating-retry-fallback-watchdog-budget"]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "capability_contract": {
+    "normal_execution": {"required_evidence": "level-1-live"},
+    "structured_output": {"required_evidence": "level-1-live"},
+    "stdout_stderr_capture": {"required_evidence": "level-1-live"},
+    "lifecycle_quiescence": {"required_evidence": "level-1-live"},
+    "provenance": {"required_evidence": "level-1-live"},
+    "A_mode": {"required_evidence": "level-1-live"},
+    "B_mode": {"required_evidence": "level-1-live"},
+    "queue": {"required_evidence": "level-1-live"},
+    "watchdog": {"required_evidence": "level-1-or-level-2-contract"},
+    "timeout": {"required_evidence": "level-1-or-level-2-contract"},
+    "transient_network": {"required_evidence": "level-1-or-level-2-contract"},
+    "rate_limited": {"required_evidence": "level-1-or-level-2-contract"},
+    "temporarily_unavailable": {"required_evidence": "level-1-or-level-2-contract"},
+    "quota_exhausted": {"required_evidence": "level-1-or-level-2-contract"},
+    "auth_configuration": {"required_evidence": "level-1-or-level-2-contract"},
+    "model_unavailable": {"required_evidence": "level-1-or-level-2-contract"},
+    "retry": {"required_evidence": "level-1-or-level-2-contract"},
+    "fallback": {"required_evidence": "level-1-or-level-2-contract"}
+  },
+  "semantics": {
+    "SUPPORTED": "capability is established at its required evidence level",
+    "UNSUPPORTED": "capability is known not to be available",
+    "DEFERRED": "capability has not yet been established",
+    "level_1": "live provider evidence",
+    "level_2": "provider-documented structured contract",
+    "level_3": "simulation only; never independently sufficient for support"
+  },
+  "providers": []
+}

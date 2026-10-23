@@ -1,0 +1,19 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T065344Z-f8bb9d",
+  "event_type": "human_gate",
+  "recorded_at": "2026-09-20T06:53:44.549418Z",
+  "task_id": "PROGRAM-001B",
+  "run_id": null,
+  "actor": "human",
+  "decision_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "d3006e993ae310999d71cc2322c82a3a543c15bf495903cdab786f127159a650"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "decision": "accepted_as_is",
+  "decided_at": null,
+  "note": "Human accepted PROGRAM-001B as-is after final closure review PASS: 0 BLOCKER, 0 HIGH, 0 MEDIUM, 0 LOW; 70/70 PROGRAM-001B tests, 438/438 full suite, R1-R4 and S1-S6 source mutations all killed, review integrity CLEAN."
+}

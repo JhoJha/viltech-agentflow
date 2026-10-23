@@ -1,0 +1,19 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T012039Z-1d00d1",
+  "event_type": "human_gate",
+  "recorded_at": "2026-09-20T01:20:39.642651Z",
+  "task_id": "OPT-001",
+  "run_id": null,
+  "actor": "human",
+  "decision_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "4dc6dab932d0d45eafc38bae803bd4a77e6cd9ffa5cdd034ac57dcf80c8b6895"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "decision": "accepted_as_is",
+  "decided_at": null,
+  "note": "Human accepted OPT-001 as-is after final independent review PASS: 0 BLOCKER, 0 HIGH, 0 MEDIUM, 2 LOW; 321/321 tests PASS. Deferred LOWs: setsid-escaped descendant may retain daemon pipe-reader threads until inherited pipe EOF after bounded TimeoutExpired; ESRCH proven-quiet branch lacks direct branch-specific coverage."
+}

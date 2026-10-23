@@ -1,0 +1,50 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T052209Z-0718dc",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-20T05:22:09.757791Z",
+  "task_id": "PROGRAM-001B",
+  "run_id": null,
+  "actor": "Muse Spark 1.3 Free",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "9bec716991c72c670caaae1075ebb996d5bfc7360c0a5b54e9d9d9d795590c90"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "worker"
+  ],
+  "model": {
+    "provider": null,
+    "model_id": "Muse Spark 1.3 Free",
+    "variant": null
+  },
+  "session_type": "fresh",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "PASS",
+    "summary": "PROGRAM-001B implementation complete: bounded sequential subtasks, shared isolated worktree, durable subtask evidence, integrated review/correction, 46/46 focused and 414/414 full suite PASS; ready for independent review."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": "No commit, push, PR, or real provider invocation. PROGRAM-001A compatibility preserved when max_subtasks is absent."
+}

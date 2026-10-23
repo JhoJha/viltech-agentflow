@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scenarios": [
+    {"scenario_id": "a-mode-success", "expected": "PASS"},
+    {"scenario_id": "b-mode-success", "expected": "PASS"},
+    {"scenario_id": "deterministic-local-failure", "expected": "EXPECTED_LOCAL_FAILURE"},
+    {"scenario_id": "retry-once", "expected": "PASS"},
+    {"scenario_id": "fallback-once", "expected": "PASS"},
+    {"scenario_id": "watchdog", "expected": "EXPECTED_LOCAL_FAILURE"},
+    {"scenario_id": "budget-stop", "expected": "EXPECTED_LOCAL_FAILURE"}
+  ]
+}

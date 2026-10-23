@@ -1,0 +1,50 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T073448Z-414990",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-20T07:34:48.775324Z",
+  "task_id": "AUTONOMY-001",
+  "run_id": null,
+  "actor": "GPT-5.6 Sol High",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "d3006e993ae310999d71cc2322c82a3a543c15bf495903cdab786f127159a650"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "architect"
+  ],
+  "model": {
+    "provider": null,
+    "model_id": "gpt-5.6-sol",
+    "variant": "high"
+  },
+  "session_type": "fresh",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "PASS",
+    "summary": "AUTONOMY-001 integrated architecture READY: sequential multi-program queue, bounded retry, explicit fallback, global execution budgets, structured ProgramOutcome boundary, provider failure classification, queue-only ExecutionControl, durable crash-consistent evidence."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": "Integrated architecture plus architecture addendum approved. OPEN QUESTIONS NONE. READY_FOR_IMPLEMENTATION YES. PROGRAM-001A/B standalone compatibility is mandatory; no parallelism, DAG, resume, database scheduler, adaptive routing, automatic Git publication, or human-gate acceptance."
+}

@@ -1,0 +1,50 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T151804Z-3d9d92",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-20T15:18:04.558741Z",
+  "task_id": "AUTONOMY-001",
+  "run_id": null,
+  "actor": "DeepSeek V4.1 Flash",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "239c82a0e1ae39a2fc39e08d5e2940621b2e2a301560b60fb4148c6893f7902b"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "reviewer"
+  ],
+  "model": {
+    "provider": null,
+    "model_id": "deepseek-v4.1-flash",
+    "variant": "max"
+  },
+  "session_type": "fresh",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "REWORK",
+    "summary": "Independent adversarial review: REWORK with 0 BLOCKER, 1 HIGH, 3 MEDIUM, 2 LOW. HIGH: queue plain-process group quiescence/signaling is PID-reuse-racy and transient /proc scan ambiguity causes spurious INTERNAL_ERROR under load. Multiple load-bearing mutations survive the repository suite and require durable regression coverage."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": "Candidate integrity CLEAN. 63/63 AUTONOMY and 501/501 full suite passed, but READY_FOR_FINAL_REVIEW NO. Required correction includes identity-safe plain process-group handling plus regression tests for real executor boundary, global deadline continuity, publication/worktree preservation, final/outcome agreement and quiescence."
+}

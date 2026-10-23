@@ -1,0 +1,19 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T222533Z-191345",
+  "event_type": "human_gate",
+  "recorded_at": "2026-09-20T22:25:33.531433Z",
+  "task_id": "PR-HARNESS-001",
+  "run_id": null,
+  "actor": "human",
+  "decision_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "27490fdc86a929db8a6b220f6191d08ef15da7ef27339f6f9bae10bdef495051"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "decision": "accepted_as_is",
+  "decided_at": null,
+  "note": "Human accepted PR-HARNESS-001 as-is after final closure review PASS: 0 BLOCKER, 0 HIGH, 0 MEDIUM, 3 accepted LOW; 167 targeted tests, 372 relevant regressions, 691/691 authoritative full suite, 0 successful false-certification attacks, descriptor-anchored deletion revalidated, review integrity CLEAN, READY_FOR_HUMAN_GATE YES."
+}

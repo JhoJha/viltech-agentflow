@@ -1,0 +1,50 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260917T124733Z-4a3ae2",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-17T12:47:33.517625Z",
+  "task_id": "TEL-001",
+  "run_id": null,
+  "actor": "DeepSeek V4.1 Flash",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "83f21086a7090e538192e323853d2db8a9e04d6f3f44bda5b287dcab41ca3d63",
+    "agentflow_sha256": "06e1f9791088eaac618e786cdb4828a38eab8608aabcd47a90553a61c393860d"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "reviewer"
+  ],
+  "model": {
+    "provider": "opencode",
+    "model_id": "DeepSeek V4.1 Flash",
+    "variant": null
+  },
+  "session_type": "fresh",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "PASS",
+    "summary": "Independent TEL-001 implementation review: 0 BLOCKER, 0 HIGH; acceptable for human gate."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": null
+}

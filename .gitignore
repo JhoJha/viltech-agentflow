@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.locks/*.json
+.locks/*.stale-*.json
+runs/*
+!runs/.gitkeep
+.venv/
+venv/
+.env
+.env.*
+*.log
+.pytest_cache/
+.DS_Store
+Thumbs.db

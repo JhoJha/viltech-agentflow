@@ -1,0 +1,19 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T032111Z-940f9d",
+  "event_type": "human_gate",
+  "recorded_at": "2026-09-20T03:21:11.598446Z",
+  "task_id": "WATCHDOG-001A",
+  "run_id": null,
+  "actor": "human",
+  "decision_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "a7f2f1af785f4633107d44c0e077e1544635cadbe25fec3ffb2d68f40a7b5ecc"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "decision": "accepted_as_is",
+  "decided_at": null,
+  "note": "Human accepted WATCHDOG-001A as-is after final independent review PASS: 0 BLOCKER, 0 HIGH, 0 MEDIUM, 0 LOW; WATCHDOG 47/47 and full suite 368/368 PASS. Previous deterministic-precedence MEDIUM and descendant-assertion LOW were verified CLOSED."
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PROD-READINESS immutable run plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "candidate_sha", "candidate_tree", "environment_id", "campaign_kind", "static_manifest_hashes", "seed", "budgets", "run_root", "scenario_selection", "started_at", "tool_hashes", "fixture_hashes"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "candidate_sha": {"type": "string", "minLength": 1},
+    "candidate_tree": {"type": "string", "minLength": 1},
+    "environment_id": {"type": "string", "minLength": 1},
+    "campaign_kind": {"enum": ["mutation", "stress", "soak", "real-provider", "aggregate"]},
+    "static_manifest_hashes": {"type": "object"},
+    "seed": {"type": "integer"},
+    "budgets": {"type": "object"},
+    "run_root": {"type": "string", "minLength": 1},
+    "scenario_selection": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "started_at": {"type": "string", "minLength": 1},
+    "tool_hashes": {"type": "object"},
+    "fixture_hashes": {"type": "object"}
+  }
+}

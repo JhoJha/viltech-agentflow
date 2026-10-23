@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viltech.local/telemetry/v1/schemas/gate.schema.json",
+  "title": "Telemetry V0 human_gate event (contract / documentation — enforcement lives in telemetry.py)",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "telemetry_version", "event_id", "event_type", "recorded_at",
+    "task_id", "actor", "decision_source", "decision", "artifact_refs"
+  ],
+  "properties": {
+    "telemetry_version": {"const": 1},
+    "event_id": {"type": "string", "pattern": "^[0-9]{8}T[0-9]{6}Z-[0-9a-f]{6}$"},
+    "event_type": {"const": "human_gate"},
+    "recorded_at": {"type": "string", "pattern": "Z$"},
+    "task_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": ["string", "null"]},
+    "actor": {"type": "string", "minLength": 1},
+    "decision_source": {"const": "human"},
+    "environment": {
+      "type": ["object", "null"],
+      "properties": {
+        "models_sha256": {"type": ["string", "null"]},
+        "agentflow_sha256": {"type": ["string", "null"]}
+      }
+    },
+    "supersedes_event_id": {"type": ["string", "null"]},
+    "artifact_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["run_id", "relpath", "sha256"],
+        "properties": {
+          "run_id": {"type": "string"},
+          "relpath": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "decision": {"enum": ["accepted_as_is", "accepted_with_changes", "rejected", "superseded"]},
+    "decided_at": {"type": ["string", "null"]},
+    "note": {"type": ["string", "null"], "maxLength": 2000}
+  }
+}

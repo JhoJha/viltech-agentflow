@@ -1,0 +1,35 @@
+{
+  "task_id": "agentflow-v0-writer-lifecycle-lease-fix-luna",
+  "controller": {
+    "model": "gpt-5.6-terra",
+    "effort": "medium"
+  },
+  "repo": "~/repos/viltech-agentflow",
+  "risk": "HIGH",
+  "preferred_worker": "codex_cochampion",
+  "preferred_reviewer": "independent_reviewer",
+  "allowed_paths": ["agentflow.py", "tests/test_agentflow.py", "tasks/agentflow-writer-lifecycle-lease-fix-luna.json"],
+  "objective": "Close the remaining WriteLease V3 human-gate evidence gap without redesigning V3. Add a deterministic stdlib/temp-dir regression that exercises the real WriteLease.acquire recovery path: controller and recorded writer leader are dead, but a descendant in the recorded isolated writer process group remains alive; acquisition must fail closed without archive/replacement. After the descendant exits and the group is quiescent, recovery must succeed. Add a focused group-unverifiable fail-closed test. Make the smallest agentflow.py correction only if this regression exposes a defect. Preserve the existing V3 pipe-gated registration before GO/exec, OpenCode/Codex integration, and V2 protections. Do not modify client-app, execute H1, Docker, DB, or network calls.",
+  "invariants": [
+    "FORMAT is 3 and records controller identity plus writer state, pid, process start time, boot id, and PGID/session identity.",
+    "No worker can exec/write before its identity update is atomically persisted under token+guard verification and GO is sent.",
+    "Controller dead while original writer or group active is a blocking conflict: no archive and no second writer.",
+    "Only controller, writer and owned group all provably inactive permits stale recovery.",
+    "Unverifiable worker or group state fails closed.",
+    "Release retains the lease while its owned writer lifecycle remains active.",
+    "OpenCode and Codex worker execution uses the lifecycle mechanism; reviewer remains read-only without a workspace writer lifecycle.",
+    "The leader-dead/owned-descendant-alive regression exercises real process-group status and WriteLease.acquire recovery, blocks without archive, then permits exactly one recovery only after descendant/group quiescence.",
+    "A recorded group whose ownership/liveness cannot be verified fails closed.",
+    "All test children are stdlib temporary fake commands; no external side effects."
+  ],
+  "forbidden_actions": ["git commit", "git push", "PR", "merge", "deploy", "Docker mutation", "database mutation", "network calls", "modify ~/repos/client-app", "H1 E2E", "real OpenCode lifecycle test", "real Codex lifecycle test"],
+  "validators": [
+    {"name":"compile","command":["python3","-m","py_compile","agentflow.py"],"timeout_seconds":120},
+    {"name":"agentflow-unit-tests","command":["python3","-m","unittest","tests.test_agentflow"],"timeout_seconds":300},
+    {"name":"tooling-diff-check","command":["git","diff","--check"],"timeout_seconds":120},
+    {"name":"product-diff-check","command":["git","-C","~/repos/client-app","diff","--check"],"timeout_seconds":120}
+  ],
+  "expected_baseline":{"branch":"main"},
+  "max_corrections":1,
+  "model_timeout_seconds":3600
+}

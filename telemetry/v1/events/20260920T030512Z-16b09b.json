@@ -1,0 +1,50 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T030512Z-16b09b",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-20T03:05:12.011702Z",
+  "task_id": "WATCHDOG-001A",
+  "run_id": null,
+  "actor": "Muse Spark 1.3 Free",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "a7f2f1af785f4633107d44c0e077e1544635cadbe25fec3ffb2d68f40a7b5ecc"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "worker"
+  ],
+  "model": {
+    "provider": "opencode-zen",
+    "model_id": "Muse Spark 1.3 Free",
+    "variant": "xhigh"
+  },
+  "session_type": "fresh",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "PASS",
+    "summary": "Bounded test-only correction completed: deterministic timeout-vs-stall precedence test and independent controlled-descendant quiescence test added; 47/47 WATCHDOG and 368/368 full suite PASS."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": "Correction after independent review REWORK. Production files unchanged; only tests/test_watchdog_001a.py modified. Mutation probes P and Q detect reversed precedence and leader-only termination respectively. No commit, push, PR, or real provider invocation."
+}

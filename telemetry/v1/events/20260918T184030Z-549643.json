@@ -1,0 +1,50 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260918T184030Z-549643",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-18T18:40:30.313569Z",
+  "task_id": "TEL-001-R1",
+  "run_id": null,
+  "actor": "deepseek-v4.1-flash-reviewer",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "83f21086a7090e538192e323853d2db8a9e04d6f3f44bda5b287dcab41ca3d63",
+    "agentflow_sha256": "06e1f9791088eaac618e786cdb4828a38eab8608aabcd47a90553a61c393860d"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "reviewer"
+  ],
+  "model": {
+    "provider": "opencode-go",
+    "model_id": "deepseek-v4.1-flash",
+    "variant": "max"
+  },
+  "session_type": "fresh",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "INCOMPLETE",
+    "summary": "Independent review attempt verified baseline evidence but did not emit a final review verdict."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": null
+}

@@ -1,0 +1,10 @@
+{
+  "program_id": "program-001a-example",
+  "task": "../tasks/agentflow-stale-write-lease-fix.json",
+  "roles": {
+    "architect": "program_architect",
+    "worker": "program_worker",
+    "reviewer": "program_reviewer"
+  },
+  "max_corrections": 1
+}

@@ -1,0 +1,51 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260919T153608Z-2ba4c7",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-19T15:36:08.374998Z",
+  "task_id": "TEL-001-R2.3",
+  "run_id": null,
+  "actor": "Muse Spark 1.3 Free",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "83f21086a7090e538192e323853d2db8a9e04d6f3f44bda5b287dcab41ca3d63",
+    "agentflow_sha256": "06e1f9791088eaac618e786cdb4828a38eab8608aabcd47a90553a61c393860d"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "architect",
+    "worker"
+  ],
+  "model": {
+    "provider": null,
+    "model_id": null,
+    "variant": null
+  },
+  "session_type": "persistent",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "PASS",
+    "summary": "Implemented bounded TEL-001-R2.3 robustness fixes and Python 3.14 portability changes; worker validation 152/152 PASS."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": null
+}

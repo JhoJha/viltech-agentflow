@@ -1,0 +1,50 @@
+{
+  "telemetry_version": 1,
+  "event_id": "20260920T053937Z-105a15",
+  "event_type": "external_execution",
+  "recorded_at": "2026-09-20T05:39:37.620753Z",
+  "task_id": "PROGRAM-001B",
+  "run_id": null,
+  "actor": "Independent reviewer",
+  "actor_kind": "model",
+  "attestation_source": "human",
+  "environment": {
+    "models_sha256": "06646ed183433b8e6cebc68a257f55d02aeb6b41e8cd3b53ad8717544027fda4",
+    "agentflow_sha256": "9bec716991c72c670caaae1075ebb996d5bfc7360c0a5b54e9d9d9d795590c90"
+  },
+  "supersedes_event_id": null,
+  "artifact_refs": [],
+  "roles": [
+    "reviewer"
+  ],
+  "model": {
+    "provider": null,
+    "model_id": "unknown",
+    "variant": null
+  },
+  "session_type": "fresh",
+  "timing": {
+    "started_at": null,
+    "finished_at": null,
+    "timing_source": "unknown"
+  },
+  "outcome": {
+    "verdict": "REWORK",
+    "summary": "PROGRAM-001B independent review: 0 BLOCKER, 1 HIGH, 4 MEDIUM, 2 LOW; production preservation registration gap plus test-sensitivity gaps; 414/414 suite PASS but source mutations H/L/M survived."
+  },
+  "usage": {
+    "token_source": "unavailable",
+    "tokens": {
+      "in": null,
+      "out": null,
+      "reasoning": null,
+      "cached": null
+    },
+    "cost": {
+      "source": "unavailable",
+      "value": null,
+      "currency": null
+    }
+  },
+  "note": "HIGH: B-mode final preservation does not verify Git worktree registration. MEDIUM: immutable-history test timing, multi-child integrated review context, crash-order completed/state ordering, final reviewer blocking verdict. LOW: findings schema mismatch and README artifact disparity."
+}

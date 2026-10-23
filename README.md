@@ -73,3 +73,7 @@ python3 agentflow.py queue run <queue.json>
 ## Stack
 
 Python 3 (solo stdlib) · Git worktrees · OpenCode · Codex CLI · JSON Schema · `unittest` · Linux (`fcntl`, `/proc`, process groups)
+
+## Licencia
+
+© 2026 Jhon Villegas — [AGPL-3.0](LICENSE). Para uso comercial bajo otros términos, contáctame.
